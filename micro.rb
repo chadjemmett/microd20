@@ -29,6 +29,7 @@ module MicroD20
       self.each {|x| x.init = x.dex_bonus + MicroD20::Dice.new(20).roll(1)}
       self.sort! { |low, high| high.init <=> low.init}
     end
+    
   end
 
   class Player
@@ -40,8 +41,8 @@ module MicroD20
       @str = MicroD20::Dice.new(6).roll(3)
       @wis = MicroD20::Dice.new(6).roll(3)
       @dex_bonus = (@dex - 10)/2
-      @str_bonus = (@dex - 10)/2
-      @wis_bonus = (@dex - 10)/2
+      @str_bonus = (@str - 10)/2
+      @wis_bonus = (@wis - 10)/2
       @init = 0
       @ac = 10 + @dex_bonus
       @atk = @str_bonus
@@ -50,5 +51,10 @@ module MicroD20
       @level = 1
       @exp = 0
     end
+
+    def hp_zero?
+      self.hp <= 0
+    end
   end
 end
+  

@@ -1,0 +1,12 @@
+simulator generates player, monsters and simulates battles
+simulator gathers data about the battles.
+simulator displays data.
+simulator displays data in charts.
+simulator takes a player from level 1 to level 20
+simulator saves data
+user can alter simulator parameters to test various situations.
+
+
+Bare minimum:
+  Generate characters.(generate monsters later)
+  Make them fight.
