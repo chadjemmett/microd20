@@ -14,6 +14,8 @@ module MicroD20
       total = total + modifier
       return total
     end
+
+
   end
 
   class Game < Array
@@ -22,13 +24,14 @@ module MicroD20
     end
 
     def lineup(party_number=2)
-     party_number.times {self << MicroD20::Player.new }
+      party_number.times {self << MicroD20::Player.new }
     end
 
     def sort_by_init
       self.each {|x| x.init = x.dex_bonus + MicroD20::Dice.new(20).roll(1)}
       self.sort! { |low, high| high.init <=> low.init}
     end
+
     
   end
 
@@ -55,6 +58,18 @@ module MicroD20
     def hp_zero?
       self.hp <= 0
     end
+
+    def attack_roll
+     attack = rand(20) + 1  
+     total_attack = 0
+     if attack == 1 
+       return "fail"
+     elsif attack == 20
+       return "critical"
+     else
+       total_attack = attack + self.atk
+     end
+     return total_attack
+    end
   end
 end
-  
