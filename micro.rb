@@ -14,8 +14,6 @@ module MicroD20
       total = total + modifier
       return total
     end
-
-
   end
 
   class Game < Array
